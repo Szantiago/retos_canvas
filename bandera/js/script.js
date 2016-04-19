@@ -17,15 +17,11 @@ window.onload = function()
 //
 
   //franjas de la bandera
-  var alto=50,
-      ancho=500,
-      x=50,
-      y=50;
-
+  var y=50;
   for(var i=1;i<=5;i++){
     context.beginPath();
     var color=(i%2===0)?context.fillStyle = "white":context.fillStyle = "#ed0000";
-    context.rect(x, y, ancho, alto);
+    context.rect(50, y, 500, 50);
     context.fill();
     y+=50;
   }
@@ -41,7 +37,7 @@ window.onload = function()
     context.fill();
 
     //Para crear la "estrella"...
-    context.beginPath();
+    /*context.beginPath();
     context.fillStyle = "white";
     context.moveTo(120, 120);
     context.lineTo(110, 170);
@@ -55,5 +51,16 @@ window.onload = function()
     context.lineTo(130, 170);
     context.lineTo(120, 120);
     context.lineWidth = 2;
-    context.fill();
+    context.fill();*/
+    //Para crear la "estrella"...
+    context.beginPath();
+    context.fillStyle ="white";
+		context.rotate(4.71239);
+		for(var i = 0; i < 5; i++ )
+    {
+			var x = -180 + 50 * Math.cos( 2.5*i );
+			var y = 135 + 50 * Math.sin( 2.5*i );
+			context.lineTo(x, y);
+		}
+		context.fill();
 };
